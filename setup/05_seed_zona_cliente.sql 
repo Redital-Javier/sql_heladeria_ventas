@@ -1,0 +1,11 @@
+USE heladeria_ventas;
+
+INSERT INTO Zona_Cliente (barrio, ciudad)
+VALUES
+    ('Centro', 'Villa Mercedes'),
+    ('San José', 'Villa Mercedes'),
+    ('Los Poetas', 'Villa Mercedes'),
+    ('Estación', 'Villa Mercedes'),
+    ('828', 'Villa Mercedes'),
+    ('La Ribera', 'Villa Mercedes'),
+    ('Jardín del Sur', 'Villa Mercedes');

@@ -1,0 +1,92 @@
+DROP DATABASE IF EXISTS heladeria_ventas;
+
+CREATE DATABASE heladeria_ventas
+    CHARACTER SET utf8mb4
+    COLLATE utf8mb4_unicode_ci;
+
+USE heladeria_ventas;
+
+CREATE TABLE Fecha (
+    id_fecha            INT PRIMARY KEY,
+    fecha               DATE NOT NULL,
+    anio                INT NOT NULL,
+    mes                 TINYINT NOT NULL,
+    nombre_mes          VARCHAR(15) NOT NULL,
+    dia                 TINYINT NOT NULL,
+    dia_semana          TINYINT NOT NULL,
+    nombre_dia_semana   VARCHAR(15) NOT NULL,
+    semana_anio         TINYINT NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE Producto (
+    id_producto     INT AUTO_INCREMENT PRIMARY KEY,
+    nombre          VARCHAR(100) NOT NULL,
+    categoria       VARCHAR(50) NOT NULL,
+    precio_lista    DECIMAL(10,2) NOT NULL,
+    costo_estandar  DECIMAL(10,2) NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE Canal (
+    id_canal    INT AUTO_INCREMENT PRIMARY KEY,
+    canal       VARCHAR(50) NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE Metodo_Pago (
+    id_metodo_pago INT AUTO_INCREMENT PRIMARY KEY,
+    metodo_pago    VARCHAR(50) NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE Zona_Cliente (
+    id_zona     INT AUTO_INCREMENT PRIMARY KEY,
+    barrio      VARCHAR(100) NOT NULL,
+    ciudad      VARCHAR(100) NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE Sucursal (
+    id_sucursal INT AUTO_INCREMENT PRIMARY KEY,
+    nombre      VARCHAR(100) NOT NULL,
+    direccion   VARCHAR(150) NOT NULL,
+    ciudad      VARCHAR(100) NOT NULL,
+    provincia   VARCHAR(100) NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE Ventas_Detalle (
+    id_venta_detalle    INT AUTO_INCREMENT PRIMARY KEY,
+    id_venta            INT NOT NULL,
+
+    id_fecha            INT NOT NULL,
+    id_producto         INT NOT NULL,
+    id_canal            INT NOT NULL,
+    id_metodo_pago      INT NOT NULL,
+    id_zona             INT NULL,
+    id_sucursal         INT NOT NULL,
+
+    cantidad            INT NOT NULL,
+    precio_unitario     DECIMAL(10,2) NOT NULL,
+    comision_plataforma DECIMAL(10,2) NOT NULL DEFAULT 0,
+    hora                TIME NOT NULL,
+
+    CONSTRAINT fk_ventas_fecha
+        FOREIGN KEY (id_fecha) REFERENCES Fecha(id_fecha),
+
+    CONSTRAINT fk_ventas_producto
+        FOREIGN KEY (id_producto) REFERENCES Producto(id_producto),
+
+    CONSTRAINT fk_ventas_canal
+        FOREIGN KEY (id_canal) REFERENCES Canal(id_canal),
+
+    CONSTRAINT fk_ventas_metodo_pago
+        FOREIGN KEY (id_metodo_pago) REFERENCES Metodo_Pago(id_metodo_pago),
+
+    CONSTRAINT fk_ventas_zona
+        FOREIGN KEY (id_zona) REFERENCES Zona_Cliente(id_zona),
+
+    CONSTRAINT fk_ventas_sucursal
+        FOREIGN KEY (id_sucursal) REFERENCES Sucursal(id_sucursal)
+) ENGINE=InnoDB;
+
+USE heladeria_ventas;
+SHOW TABLES;
+
+DESCRIBE Ventas_Detalle;
+

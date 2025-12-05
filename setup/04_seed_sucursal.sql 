@@ -1,0 +1,7 @@
+USE heladeria_ventas;
+
+INSERT INTO Sucursal (nombre, direccion, ciudad, provincia)
+VALUES
+    ('Sucursal Centro', 'Av. Mitre 450', 'Villa Mercedes', 'San Luis'),
+    ('Sucursal Sur', 'Junín 1200', 'Villa Mercedes', 'San Luis'),
+    ('Sucursal Norte', 'Buenos Aires 980', 'Villa Mercedes', 'San Luis');

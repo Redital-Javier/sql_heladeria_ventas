@@ -1,0 +1,9 @@
+USE heladeria_ventas;
+
+INSERT INTO Metodo_Pago (metodo_pago)
+VALUES
+    ('Efectivo'),
+    ('Debito'),
+    ('Credito'),
+    ('MercadoPago QR'),
+    ('Transferencia');

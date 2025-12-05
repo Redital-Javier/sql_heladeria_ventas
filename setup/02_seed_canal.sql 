@@ -1,0 +1,6 @@
+USE heladeria_ventas;
+
+INSERT INTO Canal (canal)
+VALUES
+    ('Mostrador'),
+    ('PedidosYa');
