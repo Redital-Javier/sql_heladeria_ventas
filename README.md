@@ -1,4 +1,4 @@
-# sql_heladeria_ventas
+# 🛢️ sql_heladeria_ventas
 
 Proyecto SQL orientado al análisis comercial de una heladería con múltiples sucursales.  
 Incluye la creación completa del esquema de base de datos, carga inicial de datos y consultas diseñadas para explorar ventas, productos, márgenes, estacionalidad y desempeño por sucursal.
