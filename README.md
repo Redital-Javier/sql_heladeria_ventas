@@ -49,6 +49,9 @@ Esto crea todas las tablas y carga los datos iniciales.
 
 ## 📸 Capturas del proyecto
 
+### Diagrama entidad–relación
+![Diagrama entidad-relación](imagenes/diagrama_entidad_relacion.png)
+
 ### Creación de tablas
 ![Creación de tablas](imagenes/creacion_tablas.png)
 
